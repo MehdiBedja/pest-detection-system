@@ -17,6 +17,33 @@ This project is modularized into three core components. Each repository manages 
 
 ---
 
+### How the pieces fit together
+
+```mermaid
+flowchart LR
+    subgraph Research[AI research · pest-detection-computer-vision]
+        IP[IP102 dataset] --> Prep[Curation · balancing<br/>augmentation]
+        Prep --> Bench[Benchmark YOLOv7–v11<br/>SSD · Faster R-CNN]
+        Bench --> Best[YOLOv11s<br/>93.8% mAP@50]
+        Best --> TFLite[TFLite export]
+    end
+
+    subgraph App[Android app · pest_detection_app_frontend]
+        TFLite --> Infer[On-device inference<br/>offline]
+        Infer --> UI[Results + treatments<br/>EN / FR / AR]
+        Infer --> Room[(Room DB)]
+    end
+
+    subgraph Cloud[Backend · pest_detection_app_backend]
+        API[Django REST API] --> PG[(PostgreSQL)]
+        API --> Cld[Cloudinary images]
+    end
+
+    Room <-- "sync when online<br/>Token auth" --> API
+```
+
+---
+
 ## Key System Features
 
 * **Real-Time On-Device Inference:** Fully functional offline detection using a quantized YOLOv11s model running locally via TensorFlow Lite.
