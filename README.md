@@ -10,9 +10,9 @@ This project is modularized into three core components. Each repository manages 
 
 * **AI & Computer Vision Research Repository:** [pest-detection-computer-vision](https://github.com/MehdiBedja/pest-detection-computer-vision)  
   Dataset engineering on IP102, multi-model benchmarking (YOLOv7–v11, SSD, Faster R-CNN), hyperparameter tuning, model quantization, and TFLite export.
-* **Mobile App Frontend Repository:** [pest_detection_app_frontend](https://github.com/MehdiBedja/pest_detection_app_frontend)  
+* **Mobile App Frontend Repository:** [pest-detection-android](https://github.com/MehdiBedja/pest-detection-android)  
   Native Android app built with Kotlin and Jetpack Compose, featuring on-device TFLite inference, offline detection, multilingual interface, and recommended treatment workflows.
-* **Backend API Repository:** [pest_detection_app_backend](https://github.com/MehdiBedja/pest_detection_app_backend)  
+* **Backend API Repository:** [pest-detection-api](https://github.com/MehdiBedja/pest-detection-api)  
   RESTful backend developed with Django, PostgreSQL, and Cloudinary for user management, historical detection synchronization, and pesticide database management.
 
 ---
@@ -28,13 +28,13 @@ flowchart LR
         Best --> TFLite[TFLite export]
     end
 
-    subgraph App[Android app · pest_detection_app_frontend]
+    subgraph App[Android app · pest-detection-android]
         TFLite --> Infer[On-device inference<br/>offline]
         Infer --> UI[Results + treatments<br/>EN / FR / AR]
         Infer --> Room[(Room DB)]
     end
 
-    subgraph Cloud[Backend · pest_detection_app_backend]
+    subgraph Cloud[Backend · pest-detection-api]
         API[Django REST API] --> PG[(PostgreSQL)]
         API --> Cld[Cloudinary images]
     end
