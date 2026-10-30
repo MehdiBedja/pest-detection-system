@@ -59,4 +59,5 @@ Multiple object detection frameworks were benchmarked on a held-out test set:
 **Mahdi Bedja** — AI Engineer  
 * Paris, France  
 * GitHub: [@MehdiBedja](https://github.com/MehdiBedja)  
-* LinkedIn: [linkedin.com/in/mahdibedja](https://linkedin.com/in/mahdibedja)
+* LinkedIn: [linkedin.com/in/mahdi-bedja-0b94031b3](https://www.linkedin.com/in/mahdi-bedja-0b94031b3/)  
+* Portfolio: [mehdibedja.github.io](https://mehdibedja.github.io)
